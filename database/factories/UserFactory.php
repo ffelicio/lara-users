@@ -13,11 +13,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(LaraUsers\User::class, function (Faker $faker) {
+$factory->define(LaraUsers\Domain\User\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'login' => $faker->unique()->userName,
+        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret,
+        'active' => rand(0, 1)
     ];
 });

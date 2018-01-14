@@ -1,0 +1,25 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    color: #212121;
+    /* background: url(../../../img/whitey.jpg) repeat scroll 0 0 #fff; */
+    background-size: 220px 220px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+.main-box {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    /* overflow: hidden; */
+    border-radius: 3px;
+    background-clip: padding-box;
+}

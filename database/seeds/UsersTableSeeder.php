@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UsersTableSeeder::class,
-        ]);
+        \DB::table('users')->truncate();
+        factory(LaraUsers\Domain\User\User::class, 15)->create();
     }
 }
