@@ -15,7 +15,7 @@ let users = {
             dataType: 'json',
             type: 'GET'
         }).done((result) => {
-            console.log(result);
+            usersList.setTableList(result);
         });
     },
     create : () => {
