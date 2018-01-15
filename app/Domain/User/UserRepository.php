@@ -20,18 +20,29 @@ class UserRepository
                     ->get();
     }
 
-    public function create(array $data) : \Illuminate\Database\Eloquent\Collection
+    public function getById(int $id) : User 
     {
-
+        return $this->user->find($id);
     }
 
-    public function update(array $data) : \Illuminate\Database\Eloquent\Collection
+    public function create(array $data) : User
     {
-
+        $data['password'] = \Illuminate\Support\Facades\Hash::make($data['password']);
+        return $this->user->create($data);
     }
 
-    public function destroy(array $data)
+    public function update(int $id, array $data) : User
     {
+        $data['password'] = \Illuminate\Support\Facades\Hash::make($data['password']);
+        $user = $this->getById($id);
+        $user->fill($data);
+        $user->save();
+        return $user;
+    }
 
+    public function destroy(int $id)
+    {
+        $user = $this->getById($id);
+        return $user->delete();
     }
 }

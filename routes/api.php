@@ -19,9 +19,9 @@ use Illuminate\Http\Request;
 
 Route::namespace('Api')->group(function() {
     Route::get('users', 'UserController@all');
-    Route::get('user/{id}/show', 'UserController@show')->where('id', '[0-9]+');
     Route::get('user/{id}/edit', 'UserController@edit')->where('id', '[0-9]+');
 
     Route::post('user/create', 'UserController@create');
     Route::post('user/{id}/update', 'UserController@update')->where('id', '[0-9]+');
+    Route::post('user/{id}/destroy', 'UserController@destroy')->where('id', '[0-9]+');
 });

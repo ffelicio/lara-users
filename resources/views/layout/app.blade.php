@@ -20,21 +20,8 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="#">LaraUsers</a>
-
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    </ul>
-                    <button class="btn btn-outline-success my-2 my-sm-0">Logoff</button>
-                </div>
             </nav>
         </header>
-
-        @section('sidebar')
-            This is the master sidebar.
-        @show
 
         <main role="main" class="container">
             <div class="col-sm-12">
@@ -42,15 +29,29 @@
             </div>
         </main>
 
-        <footer class="footer">
-            <div class="container">
-                <p class="text-muted">LaraUsers</p>
+        <!-- Modal -->
+        <div class="modal fade" id="modal" role="dialog" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        @yield('modal-body')
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary save">Salvar</button>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>
 
         <script src="{{ URL::asset('js/jquery/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ URL::asset('js/popper/popper.min.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('js/sweet-alert/sweet-alert.min.js') }}"></script>
         <script src="{{ URL::asset('js/general/main.js') }}"></script>
         <script>
             const URL = "{{ url('/') }}";
